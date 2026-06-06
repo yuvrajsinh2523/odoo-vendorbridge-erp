@@ -1,0 +1,68 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Generate Purchase Order
+</h2>
+
+<form
+action="/purchase-orders/new"
+method="POST">
+
+<div class="mb-3">
+
+<label>
+Approved Quotation
+</label>
+
+<select
+name="quotation_id"
+class="form-control">
+
+<% approvals.forEach(a => { %>
+
+<option
+value="<%= a.quotation_id %>">
+
+<%= a.title %>
+-
+<%= a.vendor_name %>
+-
+₹ <%= a.price %>
+
+</option>
+
+<% }) %>
+
+</select>
+
+</div>
+
+
+<div class="mb-3">
+
+<label>Status</label>
+
+<select
+name="status"
+class="form-control">
+
+<option>
+Pending
+</option>
+
+<option>
+Completed
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn btn-success">
+
+Generate PO
+</button>
+
+</form>
