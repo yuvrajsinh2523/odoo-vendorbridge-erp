@@ -307,7 +307,7 @@ Add screenshots here:
 
 Backend Developer
 
-### Team Member Name
+### Urmit Modha
 
 Frontend/UI Support
 
