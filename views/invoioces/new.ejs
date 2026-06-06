@@ -1,0 +1,93 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Generate Invoice
+</h2>
+
+<form
+action="/invoices/new"
+method="POST">
+
+<div class="mb-3">
+
+<label>
+Select Purchase Order
+</label>
+
+<select
+name="po_id"
+class="form-control">
+
+<% orders.forEach(order => { %>
+
+<option
+value="<%= order.id %>">
+
+<%= order.po_number %>
+-
+<%= order.title %>
+-
+₹ <%= order.price %>
+
+</option>
+
+<% }) %>
+
+</select>
+
+</div>
+
+
+<div class="mb-3">
+
+<label>Tax</label>
+
+<input
+type="number"
+name="tax"
+class="form-control"
+value="18"
+required>
+</div>
+
+
+<div class="mb-3">
+
+<label>Total Amount</label>
+
+<input
+type="number"
+name="total_amount"
+class="form-control"
+required>
+</div>
+
+
+<div class="mb-3">
+
+<label>Status</label>
+
+<select
+name="status"
+class="form-control">
+
+<option>
+Paid
+</option>
+
+<option>
+Unpaid
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="btn btn-success">
+
+Generate Invoice
+</button>
+
+</form>
