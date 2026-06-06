@@ -1,0 +1,61 @@
+<% layout('/layouts/boilerplate') %>
+
+<h3 class="mb-4">
+    Welcome,
+  <%= user.role %>
+</h3>
+
+<div class="row">
+
+<div class="col-md-3 mb-3">
+    <div class="card shadow p-4 text-center">
+
+        <h5>🏢 Vendors</h5>
+
+        <h2 class="text-primary">
+            <%= vendors %>
+        </h2>
+
+    </div>
+</div>
+
+
+<div class="col-md-3 mb-3">
+    <div class="card shadow p-4 text-center">
+
+        <h5>📄 RFQs</h5>
+
+        <h2 class="text-success">
+            <%= rfqs %>
+        </h2>
+
+    </div>
+</div>
+
+
+<div class="col-md-3 mb-3">
+    <div class="card shadow p-4 text-center">
+
+        <h5>✅ Pending Approvals</h5>
+
+        <h2 class="text-warning">
+            <%= approvals %>
+        </h2>
+
+    </div>
+</div>
+
+
+<div class="col-md-3 mb-3">
+    <div class="card shadow p-4 text-center">
+
+        <h5>🧾 Invoices</h5>
+
+        <h2 class="text-danger">
+            <%= invoices %>
+        </h2>
+
+    </div>
+</div>
+
+</div>
