@@ -1,0 +1,58 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2 class="mb-4">
+RFQ Management
+</h2>
+
+<a
+href="/rfq/new"
+class="btn btn-primary mb-3">
+
+Create RFQ
+</a>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>Title</th>
+<th>Product</th>
+<th>Quantity</th>
+<th>Deadline</th>
+<th>Vendor</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% rfqs.forEach(rfq => { %>
+
+<tr>
+
+<td>
+<%= rfq.title %>
+</td>
+
+<td>
+<%= rfq.product_name %>
+</td>
+
+<td>
+<%= rfq.quantity %>
+</td>
+
+<td>
+<%= rfq.deadline %>
+</td>
+
+<td>
+<%= rfq.vendor_name %>
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+</table>
