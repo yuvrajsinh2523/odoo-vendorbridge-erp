@@ -1,0 +1,58 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Quotation Management
+</h2>
+
+<a
+href="/quotations/new"
+class="btn btn-primary mb-3">
+
+Add Quotation
+</a>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>RFQ</th>
+<th>Vendor</th>
+<th>Price</th>
+<th>Delivery</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% quotations.forEach(q => { %>
+
+<tr>
+
+<td>
+<%= q.rfq_title %>
+</td>
+
+<td>
+<%= q.vendor_name %>
+</td>
+
+<td>
+₹ <%= q.price %>
+</td>
+
+<td>
+<%= q.delivery_days %> days
+</td>
+
+<td>
+<%= q.status %>
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+</table>
