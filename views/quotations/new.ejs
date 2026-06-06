@@ -1,0 +1,112 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>Add Quotation</h2>
+
+<form
+action="/quotations/new"
+method="POST">
+
+<div class="mb-3">
+<label>Select RFQ</label>
+
+<select
+name="rfq_id"
+class="form-control">
+
+<% rfqs.forEach(rfq => { %>
+
+<option
+value="<%= rfq.id %>">
+
+<%= rfq.title %>
+
+</option>
+
+<% }) %>
+
+</select>
+</div>
+
+
+<div class="mb-3">
+<label>Select Vendor</label>
+
+<select
+name="vendor_id"
+class="form-control">
+
+<% vendors.forEach(vendor => { %>
+
+<option
+value="<%= vendor.id %>">
+
+<%= vendor.vendor_name %>
+
+</option>
+
+<% }) %>
+
+</select>
+</div>
+
+
+<div class="mb-3">
+<label>Price</label>
+
+<input
+type="number"
+name="price"
+class="form-control">
+</div>
+
+
+<div class="mb-3">
+<label>Delivery Days</label>
+
+<input
+type="number"
+name="delivery_days"
+class="form-control">
+</div>
+
+
+<div class="mb-3">
+<label>Notes</label>
+
+<textarea
+name="notes"
+class="form-control">
+</textarea>
+</div>
+
+
+<div class="mb-3">
+<label>Status</label>
+
+<select
+name="status"
+class="form-control">
+
+<option>
+Pending
+</option>
+
+<option>
+Approved
+</option>
+
+<option>
+Rejected
+</option>
+
+</select>
+</div>
+
+
+<button
+class="btn btn-success">
+
+Submit Quotation
+</button>
+
+</form>
