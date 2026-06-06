@@ -1,0 +1,58 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Approval Workflow
+</h2>
+
+<a
+href="/approvals/new"
+class="btn btn-primary mb-3">
+
+New Approval
+</a>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>RFQ</th>
+<th>Vendor</th>
+<th>Price</th>
+<th>Status</th>
+<th>Remarks</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% approvals.forEach(a => { %>
+
+<tr>
+
+<td>
+<%= a.rfq_title %>
+</td>
+
+<td>
+<%= a.vendor_name %>
+</td>
+
+<td>
+₹ <%= a.price %>
+</td>
+
+<td>
+<%= a.status %>
+</td>
+
+<td>
+<%= a.remarks %>
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+</table>
