@@ -1,0 +1,53 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Purchase Orders
+</h2>
+
+<a
+href="/purchase-orders/new"
+class="btn btn-primary mb-3">
+
+Generate PO
+</a>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>PO Number</th>
+<th>RFQ</th>
+<th>Vendor</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% orders.forEach(order => { %>
+
+<tr>
+
+<td>
+<%= order.po_number %>
+</td>
+
+<td>
+<%= order.rfq_title %>
+</td>
+
+<td>
+<%= order.vendor_name %>
+</td>
+
+<td>
+<%= order.status %>
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+</table>
