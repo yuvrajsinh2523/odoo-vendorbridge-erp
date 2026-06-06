@@ -1,0 +1,90 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>
+Invoices
+</h2>
+
+<a
+href="/invoices/new"
+class="btn btn-primary mb-3">
+
+Generate Invoice
+</a>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>Invoice No</th>
+<th>PO Number</th>
+<th>Vendor</th>
+<th>Tax</th>
+<th>Total</th>
+<th>Status</th>
+<th>Action</th>
+<th>Mail</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% invoices.forEach(inv => { %>
+
+<tr>
+
+<td>
+<%= inv.invoice_number %>
+</td>
+
+<td>
+<%= inv.po_number %>
+</td>
+
+<td>
+<%= inv.vendor_name %>
+</td>
+
+<td>
+₹ <%= inv.tax %>
+</td>
+
+<td>
+₹ <%= inv.total_amount %>
+</td>
+
+<td>
+<%= inv.status %>
+</td>
+
+<td>
+
+<a
+href="/invoices/print/<%= inv.id %>"
+class="btn btn-primary btn-sm">
+
+Print
+</a>
+
+</td>
+
+<td>
+   <form
+action="/invoices/send/<%= inv.id %>"
+method="POST"
+>
+    <button class="btn">
+        Send Email
+    </button>
+
+    </form>
+</td>
+
+</tr>
+
+
+
+<% }) %>
+
+</tbody>
+</table>
