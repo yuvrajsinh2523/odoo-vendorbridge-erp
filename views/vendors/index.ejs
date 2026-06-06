@@ -1,0 +1,91 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2 class="mb-4">
+Vendor Management
+</h2>
+
+<a
+href="/vendors/new"
+class="btn btn-primary mb-3">
+
+Add Vendor
+</a>
+
+<form
+action="/vendors"
+method="GET"
+class="mb-3 d-flex">
+
+<input
+type="text"
+name="search"
+value="<%= search || '' %>"
+placeholder="Search Vendor"
+
+class="form-control me-2">
+
+<button
+class="btn btn-dark">
+
+Search
+</button>
+
+</form>
+
+<table
+class="table table-bordered">
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th>GST</th>
+<th>Email</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% vendors.forEach(vendor => { %>
+
+<tr>
+
+<td>
+<%= vendor.vendor_name %>
+</td>
+
+<td>
+<%= vendor.category %>
+</td>
+
+<td>
+<%= vendor.gst_number %>
+</td>
+
+<td>
+<%= vendor.email %>
+</td>
+
+<td>
+<%= vendor.status %>
+</td>
+
+<td>
+
+<a
+href="/vendors/delete/<%= vendor.id %>"
+class="btn btn-danger btn-sm">
+
+Delete
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+</table>
