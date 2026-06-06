@@ -1,0 +1,82 @@
+<% layout('/layouts/boilerplate') %>
+
+<h2>Create Approval</h2>
+
+<form
+action="/approvals/new"
+method="POST">
+
+<div class="mb-3">
+
+<label>
+Select Quotation
+</label>
+
+<select
+name="quotation_id"
+class="form-control">
+
+<% quotations.forEach(q => { %>
+
+<option
+value="<%= q.id %>">
+
+<%= q.title %>
+-
+<%= q.vendor_name %>
+-
+₹ <%= q.price %>
+
+</option>
+
+<% }) %>
+
+</select>
+
+</div>
+
+
+<div class="mb-3">
+
+<label>Status</label>
+
+<select
+name="status"
+class="form-control">
+
+<option>
+Approved
+</option>
+
+<option>
+Rejected
+</option>
+
+<option>
+Pending
+</option>
+
+</select>
+
+</div>
+
+
+<div class="mb-3">
+
+<label>Remarks</label>
+
+<textarea
+name="remarks"
+class="form-control">
+</textarea>
+
+</div>
+
+
+<button
+class="btn btn-success">
+
+Submit Approval
+</button>
+
+</form>
